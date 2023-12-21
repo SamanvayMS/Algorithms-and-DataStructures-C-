@@ -29,5 +29,22 @@ int main(){
         }
         cout << endl;
     }
+
+    cout << "accessing first element: **matrix : " << **matrix << endl;
+    cout << "accessing second element: *(*matrix + 1) " << *(*matrix + 1) << endl;
+    cout << "accessing first element of second row: *(*(matrix + 1)) " << *(*(matrix + 1)) << endl;
+    cout << "accessing second element of second row: *(*(matrix + 1) + 1) " << *(*(matrix + 1) + 1) << endl;
+
+    cout << "Iterating through the matrix by passing via reference and incrementing adresses: " << endl;
+    for (int i = 0; i < rows; i++) { // delete the list of pointers
+        for (int j = 0; j < cols; j++) {
+            cout << *(*(matrix + i) + j) << " ";
+        }
+        cout << endl;
+    }
+    for (int i = 0; i < rows; i++) { // delete the matrix
+        delete[] matrix[i];
+    }
+    delete[] matrix;
     return 0;
 }
